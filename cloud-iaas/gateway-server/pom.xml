@@ -60,6 +60,13 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+
+        <!--动力商城项目的公共基础模块依赖-->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>common-base</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

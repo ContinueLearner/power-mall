@@ -42,6 +42,7 @@
         <druid.version>1.2.18</druid.version>
         <hutool.version>5.8.2</hutool.version>
         <swagger.version>3.0.0</swagger.version>
+        <common-base.version>1.0-SNAPSHOT</common-base.version>
     </properties>
 
 <!--    父工程必须遵循两种要求：-->
@@ -109,6 +110,13 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
                 <version>${swagger.version}</version>
+            </dependency>
+
+            <!--动力商城项目的公共基础模块依赖-->
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>common-base</artifactId>
+                <version>${common-base.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
