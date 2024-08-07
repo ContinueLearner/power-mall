@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: gateway-server  # 设置应用名称
+  cloud:
+    nacos:
+      discovery:  # 配置nacos注册中心
+        server-addr: 192.168.43.130:8848   # 指定nacos注册中心地址
+        username: nacos
+        password: nacos
+        namespace: 64a02c42-5617-4df6-8e56-1f030a76c084   #指定新创建的命名空间id
+        group: A_GROUP  # 分组名称
+        service: ${spring.application.name}
+      config:   # 设置nacos配置中心
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}  # 指定配置中心地址
+        username: ${spring.cloud.nacos.discovery.username}
+        password: ${spring.cloud.nacos.discovery.password}
+        namespace: ${spring.cloud.nacos.discovery.namespace} #指定配置中心命名空间id
+        group: ${spring.cloud.nacos.discovery.group}  # 指定配置中心分组名称
+        prefix: ${spring.application.name}  # 配置文件的前缀，默认为spring.application.name的值
+        file-extension: yml   # 指定配置文件的数据格式（文件扩展名）
+  profiles:
+    active: dev # 即为当前环境对应的profile（多环境配置）
