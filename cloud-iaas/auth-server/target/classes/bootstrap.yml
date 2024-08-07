@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: auth-server   # 服务名称
+  cloud:
+    nacos:
+      discovery:  # nacos注册中心配置
+        server-addr: 192.168.43.130:8848   # 配置中心ip地址
+        namespace: 64a02c42-5617-4df6-8e56-1f030a76c084        # 指定命名空间
+        group: A_GROUP  # 指定分组名称
+        username: nacos # 访问配置中心用户名
+        password: nacos # 访问配置中心密码
+        service: ${spring.application.name} # 指定服务名称
+      config: # nacos配置中心配置
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        group: ${spring.cloud.nacos.discovery.group}
+        username: ${spring.cloud.nacos.discovery.username}
+        password: ${spring.cloud.nacos.discovery.password}
+        prefix: ${spring.application.name}  # 指定前缀
+        file-extension: yml # 指定后缀
+        shared-configs:   # 指定共享配置文件
+          - application-${spring.profiles.active}.${spring.cloud.nacos.config.file-extension}
+  profiles:
+    active: dev # 指定环境
